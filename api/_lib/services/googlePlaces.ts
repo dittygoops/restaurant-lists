@@ -40,7 +40,7 @@ export async function getNearbyRestaurants(
   let nextPageToken = data.next_page_token;
 
   while (nextPageToken && all.length < maxResults) {
-    await new Promise(r => setTimeout(r, 2000)); // Google requires delay before using page token
+    await new Promise(r => setTimeout(r, 2000));
     const pageData = await fetchPage({ pagetoken: nextPageToken, key: apiKey });
     if (pageData.status !== 'OK') break;
     all.push(...pageData.results);

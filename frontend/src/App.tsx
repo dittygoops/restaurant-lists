@@ -26,7 +26,7 @@ function App() {
     try {
       const radiusMeters = Math.round(radiusMiles * 1609.34)
       const response = await fetch(
-        `http://localhost:5001/api/restaurants?lat=${location.lat}&long=${location.lng}&radius=${radiusMeters}`
+        `/api/restaurants?lat=${location.lat}&long=${location.lng}&radius=${radiusMeters}`
       )
       if (!response.ok) throw new Error('Failed to fetch restaurants')
       setRestaurants(await response.json())
